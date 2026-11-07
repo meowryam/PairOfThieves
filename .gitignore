@@ -49,8 +49,5 @@ Makefile
 Thumbs.db
 desktop.ini
 # Visual Studio solution and project files
-*.sln
-*.slnx
-*.vcxproj
-*.vcxproj.filters
+
 *.vcxproj.user

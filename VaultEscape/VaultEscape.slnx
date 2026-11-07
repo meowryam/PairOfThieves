@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="VaultEscape.vcxproj" Id="b7eb7a54-1b6c-4e9d-8fef-e51b244dcd1e" />
+</Solution>
