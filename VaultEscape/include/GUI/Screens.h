@@ -23,8 +23,7 @@ namespace vh
         UIManager* m_manager;
         Renderer* m_renderer;
 
-        Button m_buttons[4];
-
+        Button m_buttons[6];
     public:
 
         MainMenuScreen(UIManager& manager, Renderer& renderer);

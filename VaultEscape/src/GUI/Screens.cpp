@@ -61,43 +61,49 @@ namespace vh
     // MAIN MENU SCREEN
     // =====================================
 
+
     MainMenuScreen::MainMenuScreen(
         UIManager& manager,
         Renderer& renderer)
         : m_manager(&manager),
         m_renderer(&renderer)
     {
+        // Campaign button
         m_buttons[0] = Button(
-            { 520.f, 270.f },
-            { 240.f, 50.f },
-            "Campaign"
+            { 790.f, 220.f },
+            { 320.f, 55.f },
+            "CAMPAIGN"
         );
 
+        // Sandbox button
         m_buttons[1] = Button(
-            { 520.f, 340.f },
-            { 240.f, 50.f },
-            "Sandbox"
+            { 790.f, 305.f },
+            { 320.f, 55.f },
+            "SANDBOX"
         );
 
+        // Leaderboard button
         m_buttons[2] = Button(
-            { 520.f, 410.f },
-            { 240.f, 50.f },
-            "Leaderboard"
+            { 790.f, 390.f },
+            { 320.f, 55.f },
+            "LEADERBOARD"
         );
 
+        // Report View button
         m_buttons[3] = Button(
-            { 520.f, 480.f },
-            { 240.f, 50.f },
-            "Report View"
+            { 790.f, 475.f },
+            { 320.f, 55.f },
+            "REPORT VIEW"
         );
     }
+
 
 
     void MainMenuScreen::handleEvent(const sf::Event& event)
     {
         sf::Vector2f position;
 
-        // Handle hover
+        // Handle mouse hovering
         if (getHoverPosition(event, position))
         {
             for (int i = 0; i < 4; i++)
@@ -108,10 +114,12 @@ namespace vh
             }
         }
 
-        // Handle clicks
+        // Check for mouse click
         if (!getClickPosition(event, position))
             return;
 
+
+        // CAMPAIGN
         if (m_buttons[0].contains(position))
         {
             m_manager->setScreen(
@@ -119,6 +127,7 @@ namespace vh
             );
         }
 
+        // SANDBOX
         else if (m_buttons[1].contains(position))
         {
             m_manager->setScreen(
@@ -126,6 +135,7 @@ namespace vh
             );
         }
 
+        // LEADERBOARD
         else if (m_buttons[2].contains(position))
         {
             m_manager->setScreen(
@@ -133,6 +143,7 @@ namespace vh
             );
         }
 
+        // REPORT VIEW
         else if (m_buttons[3].contains(position))
         {
             m_manager->setScreen(
@@ -142,47 +153,221 @@ namespace vh
     }
 
 
+
     void MainMenuScreen::update(float deltaTime)
     {
         (void)deltaTime;
     }
 
 
+
     void MainMenuScreen::render(sf::RenderWindow& window)
     {
-        // Background decoration
-        m_renderer->drawCircle(
-            window, { 180.f, 180.f }, 110.f,
-            Theme::ForestGreen, Theme::LeafGreen
-        );
+        // =====================================
+        // BACKGROUND DECORATION
+        // =====================================
+        sf::Texture* backgroundTexture =
+            m_manager->getAssetManager()->getTexture("background");
 
-        m_renderer->drawCircle(
-            window, { 1070.f, 530.f }, 140.f,
-            Theme::ForestGreen, Theme::LeafGreen
-        );
+        if (backgroundTexture != nullptr)
+        {
+            sf::Sprite background(*backgroundTexture);
+
+            sf::Vector2u textureSize = backgroundTexture->getSize();
+            sf::Vector2u windowSize = window.getSize();
+
+            float scaleX = (float)windowSize.x / textureSize.x;
+            float scaleY = (float)windowSize.y / textureSize.y;
+
+            background.setScale({ scaleX, scaleY });
+
+            window.draw(background);
+        }
+        AssetManager* assets = m_manager->getAssetManager();
+
+        // Draw mango tree
+        if (assets != nullptr)
+        {
+            sf::Texture* treeTexture =
+                assets->getTexture("mangoTree");
+
+            if (treeTexture != nullptr)
+            {
+                sf::Sprite tree(*treeTexture);
+
+                tree.setPosition({ 25.f, 55.f });
+                tree.setScale({ 3.f, 3.f });
+
+                window.draw(tree);
+            }
+
+
+            // Draw palm tree
+            sf::Texture* palmTexture =
+                assets->getTexture("palmTree");
+
+            if (palmTexture != nullptr)
+            {
+                sf::Sprite palm(*palmTexture);
+
+                palm.setPosition({ 440.f, 45.f });
+                palm.setScale({ 2.5f, 2.5f });
+
+                window.draw(palm);
+            }
+
+
+            // Draw explorer
+            sf::Texture* heroTexture =
+                assets->getTexture("hero");
+
+            if (heroTexture != nullptr)
+            {
+                sf::Sprite hero(*heroTexture);
+
+                hero.setTextureRect(
+                    sf::IntRect(
+                        { 0, 0 },
+                        { 16, 32 }
+                    )
+                );
+
+                hero.setOrigin({ 8.f, 30.f });
+
+                hero.setScale({ 6.f, 6.f });
+
+                hero.setPosition({ 390.f, 475.f });
+
+                window.draw(hero);
+            }
+
+
+            // Draw treasure chest
+            sf::Texture* chestTexture =
+                assets->getTexture("treasureChest");
+
+            if (chestTexture != nullptr)
+            {
+                sf::Sprite chest(*chestTexture);
+
+                chest.setPosition({ 360.f, 565.f });
+
+                chest.setScale({ 2.5f, 2.5f });
+
+                window.draw(chest);
+            }
+        }
+
+
+        // =====================================
+        // GAME TITLE
+        // =====================================
 
         m_renderer->drawText(
             window,
             "VAULT HEIST",
-            { 390.f, 90.f },
-            58,
+            { 130.f, 110.f },
+            55,
             Theme::TreasureGold
         );
 
         m_renderer->drawText(
             window,
             "THE JUNGLE ADVENTURE",
-            { 455.f, 165.f },
-            24,
+            { 155.f, 185.f },
+            23,
             Theme::Lime
         );
+
+        m_renderer->drawText(
+            window,
+            "YOUR TREASURE HUNT BEGINS HERE",
+            { 125.f, 235.f },
+            15,
+            Theme::Parchment
+        );
+
+
+        // =====================================
+        // WOODEN MENU BOARD
+        // =====================================
+
+        sf::RectangleShape boardShadow;
+
+        boardShadow.setSize({ 430.f, 500.f });
+        boardShadow.setPosition({ 750.f, 135.f });
+
+        boardShadow.setFillColor(Theme::DarkSoil);
+
+        window.draw(boardShadow);
+
+
+        sf::RectangleShape menuBoard;
+
+        menuBoard.setSize({ 430.f, 500.f });
+        menuBoard.setPosition({ 735.f, 120.f });
+
+        menuBoard.setFillColor(Theme::WoodBrown);
+
+        menuBoard.setOutlineColor(Theme::Bamboo);
+
+        menuBoard.setOutlineThickness(6.f);
+
+        window.draw(menuBoard);
+
+
+        // Menu heading
+        m_renderer->drawText(
+            window,
+            "CHOOSE YOUR ADVENTURE",
+            { 785.f, 160.f },
+            22,
+            Theme::TreasureGold
+        );
+
+
+        // Small decorative divider
+        sf::RectangleShape divider;
+
+        divider.setSize({ 320.f, 2.f });
+
+        divider.setPosition({ 790.f, 195.f });
+
+        divider.setFillColor(Theme::Bamboo);
+
+        window.draw(divider);
+
+
+        // =====================================
+        // MENU BUTTONS
+        // =====================================
 
         for (int i = 0; i < 4; i++)
         {
             m_buttons[i].render(window, *m_renderer);
         }
-    }
 
+
+        // =====================================
+        // FOOTER
+        // =====================================
+
+        m_renderer->drawText(
+            window,
+            "A DD PRODUCTION",
+            { 850.f, 565.f },
+            16,
+            Theme::Bamboo
+        );
+
+        m_renderer->drawText(
+            window,
+            "EXPLORE. DISCOVER. ESCAPE.",
+            { 815.f, 595.f },
+            13,
+            Theme::Parchment
+        );
+    }
 
 
     // =====================================
@@ -461,7 +646,8 @@ void LevelScreen::render(sf::RenderWindow& window)
 {
     // Draw jungle environment first
     m_jungleScene.render(window);
-
+    // Draw jungle background
+   
 
     // Display current Act and Level
     char title[40];

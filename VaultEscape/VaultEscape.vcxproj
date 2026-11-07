@@ -48,8 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\KAISG.ttf" />
+    <Font Include="assets\fonts\PixelifySans-SemiBold.ttf" />
+    <Font Include="assets\fonts\PressStart2P-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\images\background.png" />
     <Image Include="assets\images\camp_backpack.png" />
     <Image Include="assets\images\camp_campfire_small_burn.png" />
     <Image Include="assets\images\camp_crate_stamped.png" />
@@ -78,6 +81,9 @@
     <Image Include="assets\images\temple_pot_clay.png" />
     <Image Include="assets\images\temple_spike_trap_cycle.png" />
     <Image Include="assets\images\tileset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sounds\intro.mp3" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

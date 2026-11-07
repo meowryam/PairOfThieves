@@ -118,6 +118,12 @@
     <Font Include="assets\fonts\KAISG.ttf">
       <Filter>assets\fonts</Filter>
     </Font>
+    <Font Include="assets\fonts\PixelifySans-SemiBold.ttf">
+      <Filter>assets\fonts</Filter>
+    </Font>
+    <Font Include="assets\fonts\PressStart2P-Regular.ttf">
+      <Filter>assets\fonts</Filter>
+    </Font>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\images\camp_backpack.png">
@@ -204,5 +210,13 @@
     <Image Include="assets\images\tileset.png">
       <Filter>assets\images</Filter>
     </Image>
+    <Image Include="assets\images\background.png">
+      <Filter>assets\images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sounds\intro.mp3">
+      <Filter>assets\sounds</Filter>
+    </Media>
   </ItemGroup>
 </Project>

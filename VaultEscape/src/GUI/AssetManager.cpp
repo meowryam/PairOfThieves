@@ -96,12 +96,16 @@ namespace vh
         bool allLoaded = true;
 
         // Main textures
+       // Main textures
         if (!loadTexture("tileset", "assets/images/tileset.png"))
             allLoaded = false;
 
         if (!loadTexture("hero", "assets/images/hero_explorer_sheet.png"))
             allLoaded = false;
 
+        // Main menu background
+        if (!loadTexture("background", "assets/images/background.png"))
+            allLoaded = false;
 
         // Animated objects
         if (!loadTexture("campfire", "assets/images/camp_campfire_small_burn.png"))

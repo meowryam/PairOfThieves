@@ -16,7 +16,8 @@ namespace vh
         m_window.setFramerateLimit(60);
        
         // Load the font
-        m_renderer.loadFont("assets/fonts/KAISG.ttf");
+        m_renderer.loadFont("assets/fonts/PixelifySans-SemiBold.ttf");
+        m_renderer.loadTitleFont("assets/fonts/PressStart2P-Regular.ttf");
 
         m_assetsLoaded = m_assetManager.loadJungleAssets();
 

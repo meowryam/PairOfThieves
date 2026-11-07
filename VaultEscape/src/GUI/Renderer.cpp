@@ -1,17 +1,21 @@
 
 #include "GUI/Renderer.h"
 
-
-
 namespace vh
 {
+    // Load normal UI font
     bool Renderer::loadFont(const char* filePath)
     {
         m_fontLoaded = m_font.openFromFile(filePath);
-
         return m_fontLoaded;
     }
 
+    // Load title font
+    bool Renderer::loadTitleFont(const char* filePath)
+    {
+        m_titleFontLoaded = m_titleFont.openFromFile(filePath);
+        return m_titleFontLoaded;
+    }
 
     void Renderer::drawRectangle(
         sf::RenderWindow& window,
@@ -26,7 +30,6 @@ namespace vh
 
         window.draw(rectangle);
     }
-
 
     void Renderer::drawCircle(
         sf::RenderWindow& window,
@@ -47,7 +50,6 @@ namespace vh
         window.draw(circle);
     }
 
-
     void Renderer::drawLine(
         sf::RenderWindow& window,
         sf::Vector2f start,
@@ -65,7 +67,7 @@ namespace vh
         window.draw(line, 2, sf::PrimitiveType::Lines);
     }
 
-
+    // Draw normal UI text
     void Renderer::drawText(
         sf::RenderWindow& window,
         const char* message,
@@ -84,6 +86,24 @@ namespace vh
         window.draw(text);
     }
 
+    // Draw title text using the title font
+    void Renderer::drawTitleText(
+        sf::RenderWindow& window,
+        const char* message,
+        sf::Vector2f position,
+        unsigned int characterSize,
+        sf::Color color)
+    {
+        if (!m_titleFontLoaded)
+            return;
+
+        sf::Text text(m_titleFont, message, characterSize);
+
+        text.setPosition(position);
+        text.setFillColor(color);
+
+        window.draw(text);
+    }
 
     void Renderer::drawNode(
         sf::RenderWindow& window,
