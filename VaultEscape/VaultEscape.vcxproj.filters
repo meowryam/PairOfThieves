@@ -19,15 +19,190 @@
     <Filter Include="src">
       <UniqueIdentifier>{e0c1e4bd-6992-4fce-9041-a619a246f080}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\GUI">
+      <UniqueIdentifier>{5da1adf8-91ee-4d3b-b72d-197e527cf4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GUI">
+      <UniqueIdentifier>{6712ce57-e4a7-41a1-b5a9-83135d2f5010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{006fd0c0-c7e7-4ed6-a530-3b3c48e50ffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\images">
+      <UniqueIdentifier>{e2031ac6-fc69-4df7-91ad-47c02217240a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\fonts">
+      <UniqueIdentifier>{a8f3e03e-ff67-47ae-9342-05ee94b6e3e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets\sounds">
+      <UniqueIdentifier>{392a82e0-3b5f-4a39-9ef6-28d3fb6469f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\main.h">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\AnimationController.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\Application.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\LayoutEngine.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\Renderer.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\Screen.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\Screens.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\UIComponents.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\UIManager.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\Theme.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\AssetManager.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\JungleScene.h">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\Player.h">
+      <Filter>include\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\GUI\AnimationController.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Application.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\LayoutEngine.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Renderer.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Screens.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\UIComponents.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\UIManager.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\AssetManager.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\JungleScene.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Player.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\fonts\KAISG.ttf">
+      <Filter>assets\fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\images\camp_backpack.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\camp_campfire_small_burn.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\camp_crate_stamped.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\camp_tent_bell.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\critter_butterfly_blue_flutter.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\hero_explorer_sheet.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_bird_of_paradise.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_bromeliad.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_flower_patch_magenta.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_log_mossy.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_mango_tree.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_mushroom_giant_red.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_palm_coconut_tall.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\jungle_rock_mossy.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\outpost_basket_mangoes.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\outpost_stilt_hut_small.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\river_canoe_paddles.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\river_crab_pot.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\river_lily_pads_flowering.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\river_waterfall_narrow_flow.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\ruin_column_vine_wrapped.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\ruin_guardian_jaguar.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\temple_chest_gold_closed.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\temple_door_guardian_face.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\temple_gem_emerald_glint.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\temple_pot_clay.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\temple_spike_trap_cycle.png">
+      <Filter>assets\images</Filter>
+    </Image>
+    <Image Include="assets\images\tileset.png">
+      <Filter>assets\images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

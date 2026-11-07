@@ -19,10 +19,65 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\GUI\AnimationController.h" />
+    <ClInclude Include="include\GUI\Application.h" />
+    <ClInclude Include="include\GUI\AssetManager.h" />
+    <ClInclude Include="include\GUI\JungleScene.h" />
+    <ClInclude Include="include\GUI\LayoutEngine.h" />
+    <ClInclude Include="include\GUI\Player.h" />
+    <ClInclude Include="include\GUI\Renderer.h" />
+    <ClInclude Include="include\GUI\Screen.h" />
+    <ClInclude Include="include\GUI\Screens.h" />
+    <ClInclude Include="include\GUI\Theme.h" />
+    <ClInclude Include="include\GUI\UIComponents.h" />
+    <ClInclude Include="include\GUI\UIManager.h" />
     <ClInclude Include="include\main.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GUI\AnimationController.cpp" />
+    <ClCompile Include="src\GUI\Application.cpp" />
+    <ClCompile Include="src\GUI\AssetManager.cpp" />
+    <ClCompile Include="src\GUI\JungleScene.cpp" />
+    <ClCompile Include="src\GUI\LayoutEngine.cpp" />
+    <ClCompile Include="src\GUI\Player.cpp" />
+    <ClCompile Include="src\GUI\Renderer.cpp" />
+    <ClCompile Include="src\GUI\Screens.cpp" />
+    <ClCompile Include="src\GUI\UIComponents.cpp" />
+    <ClCompile Include="src\GUI\UIManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\fonts\KAISG.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\images\camp_backpack.png" />
+    <Image Include="assets\images\camp_campfire_small_burn.png" />
+    <Image Include="assets\images\camp_crate_stamped.png" />
+    <Image Include="assets\images\camp_tent_bell.png" />
+    <Image Include="assets\images\critter_butterfly_blue_flutter.png" />
+    <Image Include="assets\images\hero_explorer_sheet.png" />
+    <Image Include="assets\images\jungle_bird_of_paradise.png" />
+    <Image Include="assets\images\jungle_bromeliad.png" />
+    <Image Include="assets\images\jungle_flower_patch_magenta.png" />
+    <Image Include="assets\images\jungle_log_mossy.png" />
+    <Image Include="assets\images\jungle_mango_tree.png" />
+    <Image Include="assets\images\jungle_mushroom_giant_red.png" />
+    <Image Include="assets\images\jungle_palm_coconut_tall.png" />
+    <Image Include="assets\images\jungle_rock_mossy.png" />
+    <Image Include="assets\images\outpost_basket_mangoes.png" />
+    <Image Include="assets\images\outpost_stilt_hut_small.png" />
+    <Image Include="assets\images\river_canoe_paddles.png" />
+    <Image Include="assets\images\river_crab_pot.png" />
+    <Image Include="assets\images\river_lily_pads_flowering.png" />
+    <Image Include="assets\images\river_waterfall_narrow_flow.png" />
+    <Image Include="assets\images\ruin_column_vine_wrapped.png" />
+    <Image Include="assets\images\ruin_guardian_jaguar.png" />
+    <Image Include="assets\images\temple_chest_gold_closed.png" />
+    <Image Include="assets\images\temple_door_guardian_face.png" />
+    <Image Include="assets\images\temple_gem_emerald_glint.png" />
+    <Image Include="assets\images\temple_pot_clay.png" />
+    <Image Include="assets\images\temple_spike_trap_cycle.png" />
+    <Image Include="assets\images\tileset.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
