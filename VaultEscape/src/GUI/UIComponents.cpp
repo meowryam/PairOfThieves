@@ -52,8 +52,8 @@ namespace vh
     {
         m_shape.setSize({ 160.f, 45.f });
         m_shape.setFillColor(Theme::LeafGreen);
-        m_shape.setOutlineColor(Theme::Bamboo);
-        m_shape.setOutlineThickness(2.f);
+        m_shape.setOutlineColor(Theme::DeepJungle);
+        m_shape.setOutlineThickness(3.f);
     }
 
 
@@ -67,8 +67,8 @@ namespace vh
         m_shape.setSize(size);
 
         m_shape.setFillColor(Theme::LeafGreen);
-        m_shape.setOutlineColor(Theme::Bamboo);
-        m_shape.setOutlineThickness(2.f);
+        m_shape.setOutlineColor(Theme::DeepJungle);
+        m_shape.setOutlineThickness(3.f);
     }
 
 
@@ -120,6 +120,16 @@ namespace vh
         sf::RenderWindow& window,
         Renderer& renderer) const
     {
+        sf::Vector2f position = m_shape.getPosition();
+
+        // Draw button shadow for depth
+        sf::RectangleShape shadow = m_shape;
+        shadow.setPosition({ position.x + 3.f, position.y + 3.f });
+        shadow.setFillColor(Theme::DeepJungle);
+        shadow.setOutlineThickness(0.f);
+        window.draw(shadow);
+
+        // Draw main button
         sf::RectangleShape button = m_shape;
 
         if (m_hovered)
@@ -129,7 +139,12 @@ namespace vh
 
         window.draw(button);
 
-        sf::Vector2f position = m_shape.getPosition();
+        // Draw highlight on top-left for raised appearance
+        sf::RectangleShape highlight;
+        highlight.setSize({ m_shape.getSize().x - 6.f, 2.f });
+        highlight.setPosition({ position.x + 3.f, position.y + 3.f });
+        highlight.setFillColor(Theme::Bamboo);
+        window.draw(highlight);
 
         renderer.drawText(
             window,

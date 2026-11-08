@@ -202,21 +202,6 @@ namespace vh
             }
 
 
-            // Draw palm tree
-            sf::Texture* palmTexture =
-                assets->getTexture("palmTree");
-
-            if (palmTexture != nullptr)
-            {
-                sf::Sprite palm(*palmTexture);
-
-                palm.setPosition({ 440.f, 45.f });
-                palm.setScale({ 2.5f, 2.5f });
-
-                window.draw(palm);
-            }
-
-
             // Draw explorer
             sf::Texture* heroTexture =
                 assets->getTexture("hero");
@@ -263,6 +248,16 @@ namespace vh
         // GAME TITLE
         // =====================================
 
+        // Title shadow for depth
+        m_renderer->drawText(
+            window,
+            "VAULT HEIST",
+            { 133.f, 113.f },
+            55,
+            Theme::DarkSoil
+        );
+
+        // Main title
         m_renderer->drawText(
             window,
             "VAULT HEIST",
@@ -271,6 +266,7 @@ namespace vh
             Theme::TreasureGold
         );
 
+        // Subtitle
         m_renderer->drawText(
             window,
             "THE JUNGLE ADVENTURE",
@@ -279,6 +275,7 @@ namespace vh
             Theme::Lime
         );
 
+        // Tagline
         m_renderer->drawText(
             window,
             "YOUR TREASURE HUNT BEGINS HERE",
@@ -292,50 +289,114 @@ namespace vh
         // WOODEN MENU BOARD
         // =====================================
 
+        // Outer shadow border - far back
         sf::RectangleShape boardShadow;
-
-        boardShadow.setSize({ 430.f, 500.f });
-        boardShadow.setPosition({ 750.f, 135.f });
-
+        boardShadow.setSize({ 440.f, 510.f });
+        boardShadow.setPosition({ 755.f, 140.f });
         boardShadow.setFillColor(Theme::DarkSoil);
-
         window.draw(boardShadow);
 
-
+        // Wood panel - main background
         sf::RectangleShape menuBoard;
-
         menuBoard.setSize({ 430.f, 500.f });
         menuBoard.setPosition({ 735.f, 120.f });
-
         menuBoard.setFillColor(Theme::WoodBrown);
-
-        menuBoard.setOutlineColor(Theme::Bamboo);
-
-        menuBoard.setOutlineThickness(6.f);
-
         window.draw(menuBoard);
 
+        // Dark wood border frame - top-left corner
+        sf::RectangleShape cornerTL;
+        cornerTL.setSize({ 20.f, 20.f });
+        cornerTL.setPosition({ 735.f, 120.f });
+        cornerTL.setFillColor(Theme::DarkSoil);
+        window.draw(cornerTL);
 
-        // Menu heading
+        // Dark wood border frame - top-right corner
+        sf::RectangleShape cornerTR;
+        cornerTR.setSize({ 20.f, 20.f });
+        cornerTR.setPosition({ 1145.f, 120.f });
+        cornerTR.setFillColor(Theme::DarkSoil);
+        window.draw(cornerTR);
+
+        // Dark wood border frame - bottom-left corner
+        sf::RectangleShape cornerBL;
+        cornerBL.setSize({ 20.f, 20.f });
+        cornerBL.setPosition({ 735.f, 600.f });
+        cornerBL.setFillColor(Theme::DarkSoil);
+        window.draw(cornerBL);
+
+        // Dark wood border frame - bottom-right corner
+        sf::RectangleShape cornerBR;
+        cornerBR.setSize({ 20.f, 20.f });
+        cornerBR.setPosition({ 1145.f, 600.f });
+        cornerBR.setFillColor(Theme::DarkSoil);
+        window.draw(cornerBR);
+
+        // Top edge border
+        sf::RectangleShape edgeTop;
+        edgeTop.setSize({ 410.f, 8.f });
+        edgeTop.setPosition({ 745.f, 120.f });
+        edgeTop.setFillColor(Theme::DarkSoil);
+        window.draw(edgeTop);
+
+        // Bottom edge border
+        sf::RectangleShape edgeBot;
+        edgeBot.setSize({ 410.f, 8.f });
+        edgeBot.setPosition({ 745.f, 612.f });
+        edgeBot.setFillColor(Theme::DarkSoil);
+        window.draw(edgeBot);
+
+        // Left edge border
+        sf::RectangleShape edgeLeft;
+        edgeLeft.setSize({ 8.f, 500.f });
+        edgeLeft.setPosition({ 735.f, 120.f });
+        edgeLeft.setFillColor(Theme::DarkSoil);
+        window.draw(edgeLeft);
+
+        // Right edge border
+        sf::RectangleShape edgeRight;
+        edgeRight.setSize({ 8.f, 500.f });
+        edgeRight.setPosition({ 1157.f, 120.f });
+        edgeRight.setFillColor(Theme::DarkSoil);
+        window.draw(edgeRight);
+
+        // Highlight top inner edge - gives raised wood appearance
+        sf::RectangleShape highlightTop;
+        highlightTop.setSize({ 410.f, 3.f });
+        highlightTop.setPosition({ 745.f, 130.f });
+        highlightTop.setFillColor(Theme::Bamboo);
+        window.draw(highlightTop);
+
+        // Highlight left inner edge
+        sf::RectangleShape highlightLeft;
+        highlightLeft.setSize({ 3.f, 480.f });
+        highlightLeft.setPosition({ 745.f, 130.f });
+        highlightLeft.setFillColor(Theme::Bamboo);
+        window.draw(highlightLeft);
+
+
+        // Menu heading - improved visual hierarchy
         m_renderer->drawText(
             window,
             "CHOOSE YOUR ADVENTURE",
-            { 785.f, 160.f },
-            22,
+            { 770.f, 155.f },
+            24,
             Theme::TreasureGold
         );
 
 
-        // Small decorative divider
-        sf::RectangleShape divider;
+        // Decorative divider line - enhanced
+        sf::RectangleShape dividerTop;
+        dividerTop.setSize({ 280.f, 1.f });
+        dividerTop.setPosition({ 810.f, 185.f });
+        dividerTop.setFillColor(Theme::Bamboo);
+        window.draw(dividerTop);
 
-        divider.setSize({ 320.f, 2.f });
-
-        divider.setPosition({ 790.f, 195.f });
-
-        divider.setFillColor(Theme::Bamboo);
-
-        window.draw(divider);
+        // Divider bottom shadow for depth
+        sf::RectangleShape dividerBot;
+        dividerBot.setSize({ 280.f, 1.f });
+        dividerBot.setPosition({ 810.f, 188.f });
+        dividerBot.setFillColor(Theme::DeepJungle);
+        window.draw(dividerBot);
 
 
         // =====================================
@@ -354,8 +415,8 @@ namespace vh
 
         m_renderer->drawText(
             window,
-            "A DD PRODUCTION",
-            { 850.f, 565.f },
+            "CREDITS",
+            { 895.f, 565.f },
             16,
             Theme::Bamboo
         );
