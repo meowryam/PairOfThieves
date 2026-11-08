@@ -47,7 +47,6 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="assets\fonts\KAISG.ttf" />
     <Font Include="assets\fonts\PixelifySans-SemiBold.ttf" />
     <Font Include="assets\fonts\PressStart2P-Regular.ttf" />
   </ItemGroup>

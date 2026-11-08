@@ -1,9 +1,10 @@
 
 #include "GUI/Application.h"
+#include <iostream>
 
 #include "GUI/Screens.h"
 #include "GUI/Theme.h"
-
+using namespace std;
 namespace vh
 {
     // Constructor
@@ -16,8 +17,37 @@ namespace vh
         m_window.setFramerateLimit(60);
        
         // Load the font
-        m_renderer.loadFont("assets/fonts/PixelifySans-SemiBold.ttf");
-        m_renderer.loadTitleFont("assets/fonts/PressStart2P-Regular.ttf");
+
+        if (!m_renderer.loadFont("assets/fonts/PixelifySans-SemiBold.ttf"))
+            
+        {
+            cout << "ERROR: Failed to load PixelifySans-SemiBold.ttf" << endl;
+         
+        }
+        else
+        {
+            cout << "SUCCESS: Loaded PixelifySans-SemiBold.ttf" << endl;
+        }
+
+
+        if (!m_renderer.loadTitleFont("assets/fonts/PressStart2P-Regular.ttf"))
+
+        {
+            cout << "ERROR: Failed to load PressStart2P-Regular.ttf" << endl;
+
+        }
+        else
+        {
+            cout << "SUCCESS: Loaded PressStart2P-Regular.ttf" << endl;
+        }
+
+
+
+
+
+
+     // m_renderer.loadFont("assets/fonts/PixelifySans-SemiBold.ttf");
+     // m_renderer.loadTitleFont("assets/fonts/PressStart2P-Regular.ttf");
 
         m_assetsLoaded = m_assetManager.loadJungleAssets();
 

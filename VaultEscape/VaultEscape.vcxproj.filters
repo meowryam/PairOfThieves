@@ -115,9 +115,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="assets\fonts\KAISG.ttf">
-      <Filter>assets\fonts</Filter>
-    </Font>
     <Font Include="assets\fonts\PixelifySans-SemiBold.ttf">
       <Filter>assets\fonts</Filter>
     </Font>
