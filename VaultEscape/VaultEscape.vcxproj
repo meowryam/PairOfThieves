@@ -32,6 +32,20 @@
     <ClInclude Include="include\GUI\UIComponents.h" />
     <ClInclude Include="include\GUI\UIManager.h" />
     <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\MODEL\AVLTree.h" />
+    <ClInclude Include="include\MODEL\BinaryTree.h" />
+    <ClInclude Include="include\MODEL\BST.h" />
+    <ClInclude Include="include\MODEL\Event.h" />
+    <ClInclude Include="include\MODEL\EventLog.h" />
+    <ClInclude Include="include\MODEL\LevelManager.h" />
+    <ClInclude Include="include\MODEL\MaxHeap.h" />
+    <ClInclude Include="include\MODEL\ModelBase.h" />
+    <ClInclude Include="include\MODEL\SampleData.h" />
+    <ClInclude Include="include\MODEL\SaveManager.h" />
+    <ClInclude Include="include\MODEL\ScoreSystem.h" />
+    <ClInclude Include="include\MODEL\TreeNode.h" />
+    <ClInclude Include="include\MODEL\Types.h" />
+    <ClInclude Include="include\MODEL\Validator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GUI\AnimationController.cpp" />
@@ -45,6 +59,18 @@
     <ClCompile Include="src\GUI\UIComponents.cpp" />
     <ClCompile Include="src\GUI\UIManager.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MODEL\AVLTree.cpp" />
+    <ClCompile Include="src\MODEL\BinaryTree.cpp" />
+    <ClCompile Include="src\MODEL\BST.cpp" />
+    <ClCompile Include="src\MODEL\Event.cpp" />
+    <ClCompile Include="src\MODEL\EventLog.cpp" />
+    <ClCompile Include="src\MODEL\LevelManager.cpp" />
+    <ClCompile Include="src\MODEL\MaxHeap.cpp" />
+    <ClCompile Include="src\MODEL\SampleData.cpp" />
+    <ClCompile Include="src\MODEL\SaveManager.cpp" />
+    <ClCompile Include="src\MODEL\ScoreSystem.cpp" />
+    <ClCompile Include="src\MODEL\TreeNode.cpp" />
+    <ClCompile Include="src\MODEL\Validator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\PixelifySans-SemiBold.ttf" />
