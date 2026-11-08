@@ -188,18 +188,7 @@ namespace vh
         // Draw mango tree
         if (assets != nullptr)
         {
-            sf::Texture* treeTexture =
-                assets->getTexture("mangoTree");
-
-            if (treeTexture != nullptr)
-            {
-                sf::Sprite tree(*treeTexture);
-
-                tree.setPosition({ 25.f, 55.f });
-                tree.setScale({ 3.f, 3.f });
-
-                window.draw(tree);
-            }
+           
 
 
             // Draw explorer
@@ -285,93 +274,65 @@ namespace vh
         );
 
 
+
         // =====================================
-        // WOODEN MENU BOARD
+        // TILE-BASED WOODEN MENU BOARD
         // =====================================
 
-        // Outer shadow border - far back
+        sf::Texture* tileset =
+            assets->getTexture("tileset");
+
+        // Draw a small shadow behind the board
         sf::RectangleShape boardShadow;
-        boardShadow.setSize({ 440.f, 510.f });
-        boardShadow.setPosition({ 755.f, 140.f });
+        boardShadow.setSize({ 448.f, 512.f });
+        boardShadow.setPosition({ 747.f, 132.f });
         boardShadow.setFillColor(Theme::DarkSoil);
         window.draw(boardShadow);
 
-        // Wood panel - main background
-        sf::RectangleShape menuBoard;
-        menuBoard.setSize({ 430.f, 500.f });
-        menuBoard.setPosition({ 735.f, 120.f });
-        menuBoard.setFillColor(Theme::WoodBrown);
-        window.draw(menuBoard);
 
-        // Dark wood border frame - top-left corner
-        sf::RectangleShape cornerTL;
-        cornerTL.setSize({ 20.f, 20.f });
-        cornerTL.setPosition({ 735.f, 120.f });
-        cornerTL.setFillColor(Theme::DarkSoil);
-        window.draw(cornerTL);
+        if (tileset != nullptr)
+        {
+            sf::Sprite boardTile(*tileset);
 
-        // Dark wood border frame - top-right corner
-        sf::RectangleShape cornerTR;
-        cornerTR.setSize({ 20.f, 20.f });
-        cornerTR.setPosition({ 1145.f, 120.f });
-        cornerTR.setFillColor(Theme::DarkSoil);
-        window.draw(cornerTR);
+            boardTile.setScale({ 2.f, 2.f });
 
-        // Dark wood border frame - bottom-left corner
-        sf::RectangleShape cornerBL;
-        cornerBL.setSize({ 20.f, 20.f });
-        cornerBL.setPosition({ 735.f, 600.f });
-        cornerBL.setFillColor(Theme::DarkSoil);
-        window.draw(cornerBL);
+            // Board dimensions:
+            // 14 columns x 16 rows
+            // Each displayed tile is 32 x 32 pixels.
 
-        // Dark wood border frame - bottom-right corner
-        sf::RectangleShape cornerBR;
-        cornerBR.setSize({ 20.f, 20.f });
-        cornerBR.setPosition({ 1145.f, 600.f });
-        cornerBR.setFillColor(Theme::DarkSoil);
-        window.draw(cornerBR);
+            for (int row = 0; row < 16; row++)
+            {
+                for (int col = 0; col < 14; col++)
+                {
+                    int sourceX = 112;
+                    int sourceY = 1504;
 
-        // Top edge border
-        sf::RectangleShape edgeTop;
-        edgeTop.setSize({ 410.f, 8.f });
-        edgeTop.setPosition({ 745.f, 120.f });
-        edgeTop.setFillColor(Theme::DarkSoil);
-        window.draw(edgeTop);
+                    // Use a decorative tile around the edges
+                    if (row == 0 || row == 15 ||
+                        col == 0 || col == 13)
+                    {
+                        sourceX = 96;
+                        sourceY = 1488;
+                    }
 
-        // Bottom edge border
-        sf::RectangleShape edgeBot;
-        edgeBot.setSize({ 410.f, 8.f });
-        edgeBot.setPosition({ 745.f, 612.f });
-        edgeBot.setFillColor(Theme::DarkSoil);
-        window.draw(edgeBot);
+                    boardTile.setTextureRect(
+                        sf::IntRect(
+                            { sourceX, sourceY },
+                            { 16, 16 }
+                        )
+                    );
 
-        // Left edge border
-        sf::RectangleShape edgeLeft;
-        edgeLeft.setSize({ 8.f, 500.f });
-        edgeLeft.setPosition({ 735.f, 120.f });
-        edgeLeft.setFillColor(Theme::DarkSoil);
-        window.draw(edgeLeft);
+                    boardTile.setPosition(
+                        {
+                            735.f + col * 32.f,
+                            120.f + row * 32.f
+                        }
+                    );
 
-        // Right edge border
-        sf::RectangleShape edgeRight;
-        edgeRight.setSize({ 8.f, 500.f });
-        edgeRight.setPosition({ 1157.f, 120.f });
-        edgeRight.setFillColor(Theme::DarkSoil);
-        window.draw(edgeRight);
-
-        // Highlight top inner edge - gives raised wood appearance
-        sf::RectangleShape highlightTop;
-        highlightTop.setSize({ 410.f, 3.f });
-        highlightTop.setPosition({ 745.f, 130.f });
-        highlightTop.setFillColor(Theme::Bamboo);
-        window.draw(highlightTop);
-
-        // Highlight left inner edge
-        sf::RectangleShape highlightLeft;
-        highlightLeft.setSize({ 3.f, 480.f });
-        highlightLeft.setPosition({ 745.f, 130.f });
-        highlightLeft.setFillColor(Theme::Bamboo);
-        window.draw(highlightLeft);
+                    window.draw(boardTile);
+                }
+            }
+        }
 
 
         // Menu heading - improved visual hierarchy
