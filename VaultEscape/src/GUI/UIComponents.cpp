@@ -118,18 +118,20 @@ namespace vh
 
     void Button::render(
         sf::RenderWindow& window,
-        Renderer& renderer) const
+        Renderer& renderer,
+        const sf::Texture* tileset) const
     {
         sf::Vector2f position = m_shape.getPosition();
+        sf::Vector2f size = m_shape.getSize();
 
-        // Draw button shadow for depth
+        // Draw shadow
         sf::RectangleShape shadow = m_shape;
         shadow.setPosition({ position.x + 3.f, position.y + 3.f });
         shadow.setFillColor(Theme::DeepJungle);
         shadow.setOutlineThickness(0.f);
         window.draw(shadow);
 
-        // Draw main button
+        // Draw button base
         sf::RectangleShape button = m_shape;
 
         if (m_hovered)
@@ -139,20 +141,56 @@ namespace vh
 
         window.draw(button);
 
-        // Draw highlight on top-left for raised appearance
+        // Draw green tileset texture inside the button
+        if (tileset != nullptr)
+        {
+            sf::Sprite tile(*tileset);
+
+            tile.setTextureRect(
+                sf::IntRect(
+                    { 32, 1872 },
+                    { 16, 16 }
+                )
+            );
+
+            tile.setScale({ 2.f, 2.f });
+
+            // Repeat the tile horizontally
+            float tileWidth = 32.f;
+            float tileHeight = 32.f;
+
+            for (float x = position.x + 3.f;
+                x + tileWidth <= position.x + size.x - 3.f;
+                x += tileWidth)
+            {
+                tile.setPosition({
+                    x,
+                    position.y + (size.y - tileHeight) / 2.f
+                    });
+
+                // Make the texture slightly transparent
+                tile.setColor(sf::Color(255, 255, 255, 150));
+
+                window.draw(tile);
+            }
+        }
+
+        // Draw top highlight
         sf::RectangleShape highlight;
-        highlight.setSize({ m_shape.getSize().x - 6.f, 2.f });
+        highlight.setSize({ size.x - 6.f, 2.f });
         highlight.setPosition({ position.x + 3.f, position.y + 3.f });
         highlight.setFillColor(Theme::Bamboo);
         window.draw(highlight);
 
+        // Draw button text
         renderer.drawText(
             window,
             m_label,
-            { position.x + 12.f, position.y + 10.f },
+            { position.x + 18.f, position.y + 15.f },
             18,
             Theme::Parchment
         );
+    
     }
 
 

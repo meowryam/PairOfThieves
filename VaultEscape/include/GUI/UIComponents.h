@@ -45,7 +45,8 @@ namespace vh
 
         void render(
             sf::RenderWindow& window,
-            Renderer& renderer
+            Renderer& renderer,
+            const sf::Texture* tileset = nullptr
         ) const;
     };
 

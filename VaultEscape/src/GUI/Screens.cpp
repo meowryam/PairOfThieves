@@ -70,29 +70,29 @@ namespace vh
     {
         // Campaign button
         m_buttons[0] = Button(
-            { 790.f, 220.f },
-            { 320.f, 55.f },
+            { 829.f, 220.f },
+            { 260.f, 48.f },
             "CAMPAIGN"
         );
 
         // Sandbox button
         m_buttons[1] = Button(
-            { 790.f, 305.f },
-            { 320.f, 55.f },
+            { 829.f, 290.f },
+            { 260.f, 48.f },
             "SANDBOX"
         );
 
         // Leaderboard button
         m_buttons[2] = Button(
-            { 790.f, 390.f },
-            { 320.f, 55.f },
+            { 829.f, 360.f },
+            { 260.f, 48.f },
             "LEADERBOARD"
         );
 
         // Report View button
         m_buttons[3] = Button(
-            { 790.f, 475.f },
-            { 320.f, 55.f },
+            { 829.f, 430.f },
+            { 260.f, 48.f },
             "REPORT VIEW"
         );
     }
@@ -242,7 +242,7 @@ namespace vh
             window,
             "VAULT HEIST",
             { 133.f, 113.f },
-            55,
+            62,
             Theme::DarkSoil
         );
 
@@ -251,7 +251,7 @@ namespace vh
             window,
             "VAULT HEIST",
             { 130.f, 110.f },
-            55,
+            62,
             Theme::TreasureGold
         );
 
@@ -259,19 +259,14 @@ namespace vh
         m_renderer->drawText(
             window,
             "THE JUNGLE ADVENTURE",
-            { 155.f, 185.f },
-            23,
+            { 155.f, 190.f },
+            27,
             Theme::Lime
+       
         );
 
-        // Tagline
-        m_renderer->drawText(
-            window,
-            "YOUR TREASURE HUNT BEGINS HERE",
-            { 125.f, 235.f },
-            15,
-            Theme::Parchment
-        );
+      
+        
 
 
 
@@ -284,8 +279,8 @@ namespace vh
 
         // Draw a small shadow behind the board
         sf::RectangleShape boardShadow;
-        boardShadow.setSize({ 448.f, 512.f });
-        boardShadow.setPosition({ 747.f, 132.f });
+        boardShadow.setSize({ 416.f, 480.f });
+        boardShadow.setPosition({ 751.f, 132.f });
         boardShadow.setFillColor(Theme::DarkSoil);
         window.draw(boardShadow);
 
@@ -300,19 +295,20 @@ namespace vh
             // 14 columns x 16 rows
             // Each displayed tile is 32 x 32 pixels.
 
-            for (int row = 0; row < 16; row++)
+            for (int row = 0; row < 15; row++)
             {
-                for (int col = 0; col < 14; col++)
+                for (int col = 0; col < 13; col++)
                 {
-                    int sourceX = 112;
-                    int sourceY = 1504;
 
-                    // Use a decorative tile around the edges
-                    if (row == 0 || row == 15 ||
-                        col == 0 || col == 13)
+                    int sourceX = 16;
+                    int sourceY = 1936;
+
+                    // Use a different wooden tile around the edges
+                    if (row == 0 || row == 14 ||
+                        col == 0 || col == 12)
                     {
-                        sourceX = 96;
-                        sourceY = 1488;
+                        sourceX = 0;
+                        sourceY = 1936;
                     }
 
                     boardTile.setTextureRect(
@@ -324,9 +320,10 @@ namespace vh
 
                     boardTile.setPosition(
                         {
-                            735.f + col * 32.f,
+                            751.f + col * 32.f,
                             120.f + row * 32.f
                         }
+                    
                     );
 
                     window.draw(boardTile);
@@ -339,23 +336,24 @@ namespace vh
         m_renderer->drawText(
             window,
             "CHOOSE YOUR ADVENTURE",
-            { 770.f, 155.f },
-            24,
+            { 815.f, 155.f },
+            20,
             Theme::TreasureGold
         );
 
-
         // Decorative divider line - enhanced
         sf::RectangleShape dividerTop;
-        dividerTop.setSize({ 280.f, 1.f });
-        dividerTop.setPosition({ 810.f, 185.f });
+        dividerTop.setSize({ 260.f, 1.f });
+        dividerTop.setPosition({ 829.f, 185.f });
+
+     
         dividerTop.setFillColor(Theme::Bamboo);
         window.draw(dividerTop);
 
         // Divider bottom shadow for depth
         sf::RectangleShape dividerBot;
-        dividerBot.setSize({ 280.f, 1.f });
-        dividerBot.setPosition({ 810.f, 188.f });
+        dividerBot.setSize({ 260.f, 1.f });
+        dividerBot.setPosition({ 829.f, 188.f });
         dividerBot.setFillColor(Theme::DeepJungle);
         window.draw(dividerBot);
 
@@ -366,7 +364,7 @@ namespace vh
 
         for (int i = 0; i < 4; i++)
         {
-            m_buttons[i].render(window, *m_renderer);
+            m_buttons[i].render(window, *m_renderer, tileset);
         }
 
 
@@ -377,7 +375,7 @@ namespace vh
         m_renderer->drawText(
             window,
             "CREDITS",
-            { 895.f, 565.f },
+            { 920.f, 555.f },
             16,
             Theme::Bamboo
         );
@@ -385,7 +383,7 @@ namespace vh
         m_renderer->drawText(
             window,
             "EXPLORE. DISCOVER. ESCAPE.",
-            { 815.f, 595.f },
+            { 840.f, 585.f },
             13,
             Theme::Parchment
         );
